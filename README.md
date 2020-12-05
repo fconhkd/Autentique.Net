@@ -1,4 +1,4 @@
-# autentique-v2
+# autentique-sdk
 SDK C#
 
 Functions:
