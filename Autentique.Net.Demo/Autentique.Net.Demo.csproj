@@ -106,7 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Autentique\Autentique.csproj">
+    <ProjectReference Include="..\Autentique.Net\Autentique.Net.csproj">
       <Project>{1b014d3f-8b06-402a-9eb9-dc8af5418252}</Project>
       <Name>Autentique</Name>
     </ProjectReference>
