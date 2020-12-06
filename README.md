@@ -1,5 +1,7 @@
 # Autentique.Net
 
+![Travis-CI](https://travis-ci.org/lmestrinare/Autentique.Net.svg?branch=master)
+
 An unofficial .NET API Wrapper for the Autentique (https://www.autentique.com.br/).
 
 ## Installation
