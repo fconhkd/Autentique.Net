@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Autentique_Tests
+namespace Autentique.Net.Demo
 {
     static class Program
     {

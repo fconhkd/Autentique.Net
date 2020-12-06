@@ -23,8 +23,8 @@ namespace Autentique.Service
 
         public GenericResult<List<Document>> ListDocuments(string token)
         {
-            GraphQL payLoad = new GraphQL();
-            payLoad.query = "query { documents(limit: 60, page: 1) { total data { id name created_at signatures { public_id name email created_at action { name } link { short_link } user { id name email } viewed { created_at } signed { created_at } rejected { created_at } } files { original signed } } } }";
+            GraphQLRequest payLoad = new GraphQLRequest();
+            payLoad.query = "query { documents(limit: 10, page:1) { data { id, name } } }";
             payLoad.variables = "";
             var requestString = JsonConvert.SerializeObject(payLoad);
 
@@ -32,13 +32,14 @@ namespace Autentique.Service
 
             var client = new RestClient(_urlBase);
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", string.Format("bearer {0}", token));
+            request.AddHeader("Authorization", string.Format("Bearer {0}", token));
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(requestString);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                result.Result = JsonConvert.DeserializeObject<List<Document>>(response.Content);
+                var convert = JsonConvert.DeserializeObject<QueryResponse>(response.Content);
+                result.Result = convert.data.documents.data;
                 result.Success = true;
                 result.Json = response.Content;
             }

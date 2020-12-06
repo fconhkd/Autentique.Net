@@ -1,4 +1,4 @@
-﻿namespace Autentique_Tests
+﻿namespace Autentique.Net.Demo
 {
     partial class Form1
     {

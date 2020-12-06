@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Autentique_Tests.Properties
+namespace Autentique.Net.Demo.Properties
 {
 
 

@@ -4,7 +4,7 @@ using System;
 using System.Configuration;
 using System.Windows.Forms;
 
-namespace Autentique_Tests
+namespace Autentique.Net.Demo
 {
     public partial class Form1 : Form
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autentique.Domain
 {
-    public class GraphQL
+    public class GraphQLRequest
     {
         public string query { get; set; }
         public string variables { get; set; }

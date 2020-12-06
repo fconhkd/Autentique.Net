@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Domain\Document.cs" />
     <Compile Include="Domain\GraphQL.cs" />
+    <Compile Include="Domain\Response.cs" />
     <Compile Include="Domain\Signer.cs" />
     <Compile Include="Domain\SignerAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

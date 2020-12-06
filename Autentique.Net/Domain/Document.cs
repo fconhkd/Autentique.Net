@@ -8,9 +8,9 @@ namespace Autentique.Domain
 {
     public class Document
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public string filePath { get; set; }
-        public Signer[] signers { get; set; }
+        public List<Signer> signers { get; set; }
     }
 }
