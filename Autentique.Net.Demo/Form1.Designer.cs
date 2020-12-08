@@ -33,6 +33,7 @@
             this.btnListDocuments = new System.Windows.Forms.Button();
             this.txtResults = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnListFolders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtAccessToken
@@ -81,11 +82,22 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Results";
             // 
+            // btnListFolders
+            // 
+            this.btnListFolders.Location = new System.Drawing.Point(119, 60);
+            this.btnListFolders.Name = "btnListFolders";
+            this.btnListFolders.Size = new System.Drawing.Size(101, 31);
+            this.btnListFolders.TabIndex = 5;
+            this.btnListFolders.Text = "List Folders";
+            this.btnListFolders.UseVisualStyleBackColor = true;
+            this.btnListFolders.Click += new System.EventHandler(this.btnListFolders_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 443);
+            this.Controls.Add(this.btnListFolders);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtResults);
             this.Controls.Add(this.btnListDocuments);
@@ -105,6 +117,7 @@
         private System.Windows.Forms.Button btnListDocuments;
         private System.Windows.Forms.TextBox txtResults;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnListFolders;
     }
 }
 

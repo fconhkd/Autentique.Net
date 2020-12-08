@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Autentique.Domain
 {
-    public class Signer
+    public class Folder
     {
+        public string id { get; set; }
         public string name { get; set; }
-        public string email { get; set; }
-        public SignerAction action { get; set; }
+        public string type { get; set; }
+        public DateTime created_at { get; set; }
     }
 }

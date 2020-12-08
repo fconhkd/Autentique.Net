@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Autentique.Domain
 {
-    public class SignerAction
+    public class Action
     {
-        public const string SIGN = "SIGN";
+        public string name { get; set; }
     }
 }

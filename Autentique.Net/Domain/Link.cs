@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Autentique.Domain
 {
-    public class GraphQLRequest
+    public class Link
     {
-        public string query { get; set; }
-        public string variables { get; set; }
+        public string short_link { get; set; }
     }
 }

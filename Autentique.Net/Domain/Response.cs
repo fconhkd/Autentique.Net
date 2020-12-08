@@ -14,10 +14,16 @@ namespace Autentique.Domain
     public class Data
     {
         public DocumentsResponse documents { get; set; }
+        public FoldersResponse folders { get; set; }
     }
 
     public class DocumentsResponse
     {
         public List<Document> data { get; set; }
+    }
+
+    public class FoldersResponse
+    {
+        public List<Folder> data { get; set; }
     }
 }

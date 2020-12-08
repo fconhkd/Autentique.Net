@@ -10,7 +10,10 @@ namespace Autentique.Domain
     {
         public string id { get; set; }
         public string name { get; set; }
-        public string filePath { get; set; }
-        public List<Signer> signers { get; set; }
+        public bool refusable { get; set; }
+        public bool sortable { get; set; }
+        public DateTime created_at { get; set; }
+        public List<Signature> signatures { get; set; }
+        public File files { get; set; }
     }
 }
