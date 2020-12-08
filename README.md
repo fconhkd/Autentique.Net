@@ -1,7 +1,5 @@
 # Autentique.Net
 
-![Travis-CI](https://travis-ci.org/lmestrinare/Autentique.Net.svg?branch=master)
-
 An unofficial .NET API Wrapper for the Autentique (https://www.autentique.com.br/).
 
 ## Installation
@@ -16,7 +14,7 @@ In order to compile Autentique.Net, you require the following:
 - [Visual Studio 2019](https://visualstudio.microsoft.com/)
 - [.NET Framework SDK](https://dotnet.microsoft.com/download/dotnet-framework)
 
-The .NET Core workload must be selected during Visual Studio installation.
+The .NET Framework workload must be selected during Visual Studio installation.
 
 ## Known Issues
 
@@ -32,4 +30,8 @@ Due to the nature of the Autentique API, we will oftentimes need to add a proper
 
 Furthermore, while we will never break the API (outside of interface changes) on minor builds, we will occasionally need to break the ABI, by introducing parameters to a method to match changes upstream with Discord. As such, a minor version increment may require you to recompile your code, and dependencies, such as addons, may also need to be recompiled and republished on the newer version. When a binary breaking change is made, the change will be noted in the release notes.
 
+<<<<<<< HEAD
 An increment of the MAJOR component indicates that breaking changes have been made to the library; consumers should check the release notes to determine what changes need to be made.
+=======
+An increment of the MAJOR component indicates that breaking changes have been made to the library; consumers should check the release notes to determine what changes need to be made.
+>>>>>>> da519f1... README.md
