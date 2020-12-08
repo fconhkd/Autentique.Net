@@ -13,13 +13,10 @@ Our stable builds available from NuGet through the Autentique.Net metapackage:
 In order to compile Autentique.Net, you require the following:
 
 ### Using Visual Studio
-- [Visual Studio 2017](https://www.microsoft.com/net/core#windowsvs2017)
-- [.NET Core SDK](https://www.microsoft.com/net/download/core)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/)
+- [.NET Framework SDK](https://dotnet.microsoft.com/download/dotnet-framework)
 
 The .NET Core workload must be selected during Visual Studio installation.
-
-### Using Command Line
-- [.NET Core SDK](https://www.microsoft.com/net/download/core)
 
 ## Known Issues
 
