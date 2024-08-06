@@ -1,37 +1,52 @@
 ﻿using Autentique.Domain;
 using Autentique.Utils;
+using log4net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using RestSharp;
-using Newtonsoft.Json;
 
 
 namespace Autentique.Service
 {
+    /// <summary>
+    /// Autentique SDK. For more information visit <see cref="https://docs.autentique.com.br/api"/>
+    /// </summary>
     public class AutentiqueService
     {
-        private string _urlBase = Constants.URL_BASE;
-        public AutentiqueService() { }
+        private readonly ILog log;
+        private string _url = Constants.URL_BASE;
+        private string _token { get; set; }
 
-        public AutentiqueService(string urlBase)
+        /// <summary>
+        /// Initialize new instance of class <see cref="AutentiqueService"/>
+        /// </summary>
+        /// <param name="urlBase"></param>
+        public AutentiqueService(string token, string urlBase = "https://api.autentique.com.br/v2/graphql")
         {
-            _urlBase = urlBase;
+            if (string.IsNullOrEmpty(token)) throw new ArgumentNullException("token", "Token is null or empty");
+
+            this._token = token;
+            this._url = urlBase;
+            this.log = LogManager.GetLogger(this.GetType());
         }
 
-        public async Task<GenericResult<List<Document>>> ListDocuments(string _token)
+        public async Task<GenericResult<List<Document>>> ListDocuments()
         {
             var result = new GenericResult<List<Document>>();
 
-            var client = new RestClient(_urlBase);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest();
             request.AddHeader("Authorization", string.Format("Bearer {0}", _token));
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(JsonConvert.SerializeObject(new GraphQLRequest(Queries.DOC_LIST)));
-            
-            IRestResponse response = await client.ExecuteAsync(request);
+
+            var client = new RestClient(_url);
+            RestResponse response = await client.ExecutePostAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var convert = JsonConvert.DeserializeObject<QueryResponse>(response.Content);
@@ -52,17 +67,17 @@ namespace Autentique.Service
             return result;
         }
 
-        public async Task<GenericResult<List<Folder>>> ListFolders(string _token)
+        public async Task<GenericResult<List<Folder>>> ListFolders()
         {
             var result = new GenericResult<List<Folder>>();
 
-            var client = new RestClient(_urlBase);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest();
             request.AddHeader("Authorization", string.Format("Bearer {0}", _token));
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(JsonConvert.SerializeObject(new GraphQLRequest(Queries.FOLDER_LIST)));
 
-            IRestResponse response = await client.ExecuteAsync(request);
+            var client = new RestClient(_url);
+            RestResponse response = await client.ExecutePostAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var convert = JsonConvert.DeserializeObject<QueryResponse>(response.Content);
@@ -82,5 +97,6 @@ namespace Autentique.Service
 
             return result;
         }
+
     }
 }
